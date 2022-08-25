@@ -82,6 +82,24 @@ sub { bottom: -.25em; }
 .cf { *zoom: 1; }
 
 /*for all*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --clr-black: #222;
+  --clr-grey: #999;
+  --clr-white: #fff;
+  --clr-red: #EA4335;
+  --clr-blue1: #369FE3;
+  --clr-blue2: #225FAB;
+}
+
 body {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -97,58 +115,133 @@ li {
   list-style-type: none;
 }
 
+span { display: inline-block; }
+::first-letter { text-transform: uppercase; }
+
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
   width: 86%; 
   margin: 0 auto;
 }
-/*=================================
-  Header styling starts here
-=================================*/
-
-
-
-
-
-
-/*=================================
-  Header styling ends here
-=================================*/  
 
 /*=================================
   main styling starts here
 =================================*/
 
+.newsletter-signup .wrapper {
+  width: 60%;
+  padding: 50px 0;
+}
 
+.section-heading {
+  margin-bottom: 20px;
+  color: var(--clr-blue2);
+  font-size: 24px;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
 
+.input-group label,
+.input-group p,
+.input-group .gender-heading,
+.privacy-policy p {
+  color: var(--clr-black);
+  font-size: 13px;
+}
 
+.input-group input[type="text"],
+.input-group select,
+.input-control input {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0 3px;
+  box-shadow: inset 0 0 5px #666;
+  outline: none;
+}
 
+.input-group select {
+  background-color: var(--clr-blue1);
+  color: var(--clr-white);
+}
+
+.input-group > span:last-child {
+  color: var(--clr-red);
+  font-size: 11px;
+  visibility: hidden;
+}
+
+.input-group > span:last-child.active { visibility: visible; }
+
+.input-group > span:last-child::before {
+  content: '*';
+  font-size: 13px;
+}
+
+.gender-box,
+.yesNo-box {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gender-box > div,
+.yesNo-box > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gender-box > div input { order: 1; }
+.gender-box > div label { order: 2; }
+.yesNo-box input[type='radio'] { display: none; }
+
+.yesNo-box input[type='radio']:checked + span {
+  background-color: var(--clr-blue2);
+}
+
+.yesNo-box .custom-checkbox {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--clr-grey);
+  order: 1;
+  text-indent: -99999px;
+}
+
+.yesNo-box label{order: 2;}
+
+.privacy-policy a {
+  color: var(--clr-blue1);
+  text-transform: lowercase;
+  transition: all .3s;
+}
+
+.privacy-policy a::before { content: " "; }
+.privacy-policy a:hover { text-decoration: underline; }
+
+.input-control input {
+  width: 18%;
+  background-color: var(--clr-blue1);
+  box-shadow: none;
+  color: var(--clr-white);
+  text-transform: capitalize;
+  transition: all .3s;
+}
+
+.input-control input:hover { background-color: var(--clr-blue2); }
 
 /*=================================
   main styling ends here
 =================================*/
-
-/*=================================
-  footer styling starts here
-=================================*/ 
-
-
-
-
-
-
-
- /*=================================
-  footer styling ends here
-=================================*/ 
-
-/*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  
