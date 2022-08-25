@@ -1,71 +1,129 @@
 <!doctype html>
-
-<!-- If multi-language site, reconsider usage of html lang declaration here. -->
-<html lang="en"> 
-
+<html lang="en">
 <head>
- 
   <meta charset="utf-8">
-
   <title>Client</title>
-  
-  <!-- 120 word description for SEO purposes goes here. Note: Usage of lang tag. -->
-  <!-- <meta name="description" lang="en" content=""> -->
-  
-  <!-- Keywords to help with SEO go here. Note: Usage of lang tag.  -->
-  <!-- <meta name="keywords" lang="en" content=""> -->
-  
-  <!-- View-port Basics: http://mzl.la/VYREaP -->
-  <!-- This meta tag is used for mobile device to display the page without any zooming,
-       so how much the device is able to fit on the screen is what's shown initially. 
-       Remove comments from this tag, when you want to apply media queries to the website. -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
-  
-  <!-- To adhear no-cache for Chrome -->
-<!--   <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-store, no-cache" />
-  <meta http-equiv="Expires" content="0" /> -->
-
-  <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="favicon.ico" />
-
   <!--font-awesome link for icons-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
-
-  <!-- html5shiv aka html5 shim. Supporting HTML5 and CSS for IE browsers less than IE9. -->	
-  <!--[if lt IE 9]>  
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
-  <![endif]-->
-
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
-
 <body>
   <!--container start-->
   <div class="container">
-    <!--header section start-->
-    <header>
-      
-    </header>
-    <!--header section end-->
     <!--main section start-->
     <main>
-
+      <section class="newsletter-signup">
+        <div class="wrapper">
+          <h3 class="section-heading">enter your details to subscribe to our newsletter</h3>
+          <form action="#FIXME" method="get">
+            <div class="input-group">
+              <label for="fname">first name</label>
+              <input type="text" name="fname" id="fname">
+              <span class="fname-alert">enter alphabets only</span>
+            </div>
+            <div class="input-group">
+              <label for="lname">last name</label>
+              <input type="text" name="lname" id="lname">
+              <span class="lname-alert">enter alphabets only</span>
+            </div>
+            <div class="input-group">
+              <label for="mobile">mobile</label>
+              <input type="text" name="mobile" id="mobile">
+              <span class="mobile-alert">enter only 10 numbers starts with 7/8/9</span>
+            </div>
+            <div class="input-group">
+              <label for="position">position</label>
+              <input type="text" name="position" id="position">
+              <span class="position-alert">enter alphabets only</span>
+            </div>
+            <div class="input-group">
+              <label for="company">company</label>
+              <input type="text" name="company" id="company">
+              <span class="company-alert">enter alphabets only</span>
+            </div>
+            <div class="input-group">
+              <label for="company-type">company type</label>
+              <select name="company-type" id="company-type">
+                <option value="- select -">- select -</option>
+                <option value="Type 1">type 1</option>
+                <option value="Type 2">type 2</option>
+                <option value="Type 3">type 3</option>
+                <option value="Type 4">type 4</option>
+              </select>
+              <span class="company-alert">select company type</span>
+            </div>
+            <div class="input-group">
+              <label for="country">country</label>
+              <select name="country" id="country">
+                <option value="- choose -">- choose -</option>
+                <option value="country 1">country 1</option>
+                <option value="country 2">country 2</option>
+                <option value="country 3">country 3</option>
+                <option value="country 4">country 4</option>
+              </select>
+              <span class="country-alert">select country</span>
+            </div>
+            <div class="input-group">
+              <label for="work-email">work email</label>
+              <input type="text" name="work-email" id="work-email">
+              <span class="workEmail-alert">enter valid email (example: monilv@prdxn.com)</span>
+            </div>
+            <div class="input-group">
+              <label for="password">password</label>
+              <input type="text" name="password" id="password">
+              <span class="password-alert">atleast 1 speacial character, 1 capital, 1 number &amp; max length 10</span>
+            </div>
+            <div class="input-group">
+              <label for="cPassword">confirm password</label>
+              <input type="text" name="cPassword" id="cPassword">
+              <span class="cPassword-alert">incorrect password</span>
+            </div>
+            <div class="input-group">
+              <span class="gender-heading">select gender</span>
+              <div class="gender-box">
+                <div class="male-box">
+                  <label for="male">male</label>
+                  <input type="radio" name="gender" id="male">
+                </div>
+                <div class="female-box">
+                  <label for="female">female</label>
+                  <input type="radio" name="gender" id="female">
+                </div>
+              </div>
+              <span class="gender-alert">select your gender</span>
+            </div>
+            <div class="input-group">
+              <p class="gender-heading">euroFinance is part of the economist group. Would you also like to receive information on subscription offers, Economist events and other product via email&quest;</p>
+              <div class="yesNo-box">
+                <div class="yes-box">
+                  <label for="yes">yes</label>
+                  <input type="radio" name="confirm" id="yes">
+                  <span class="custom-checkbox">check</span>
+                </div>
+                <div class="no-box">
+                  <label for="no">no</label>
+                  <input type="radio" name="confirm" id="no">
+                  <span class="custom-checkbox">check</span>
+                </div>
+              </div>
+              <span class="yesNo-alert">select any one</span>
+            </div>
+            <div class="privacy-policy">
+              <p>the Economist Group is a global organisation and operates a strict privacy policy around the world. You can view our privacy policy at <a href="#FIXME" title="www.economistgroup.com/privacy">www.economistgroup.com/privacy</a>
+              </p>
+            </div>
+            <div class="input-control">
+              <input type="submit" value="submit">
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
-    <!--main section end-->
-
-    <!--footer section start-->
-    <footer>      
-
-    </footer>
-    <!--footer section end-->
-
   </div>
   <!--container end-->
-
-<!-- <script src="js/vendors/jquery-1.8.3.min.js"></script>
-<script src="assets/js/script.js"></script> -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
