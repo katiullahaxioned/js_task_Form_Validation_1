@@ -204,14 +204,24 @@ form {
   gap: 5px;
 }
 
-.gender-box > div input { order: 1; }
-.gender-box > div label { order: 2; }
-.yesNo-box input[type='radio'] { display: none; }
+.gender-box input[type='radio'],
+.yesNo-box input[type='radio'] {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+}
 
+.gender-box input[type='radio']:checked + span,
 .yesNo-box input[type='radio']:checked + span {
   background-color: var(--clr-blue2);
 }
 
+.gender-box label,
+.yesNo-box label{
+  order: 2;
+}
+
+.gender-box .custom-checkbox,
 .yesNo-box .custom-checkbox {
   width: 12px;
   height: 12px;
@@ -219,8 +229,6 @@ form {
   order: 1;
   text-indent: -99999px;
 }
-
-.yesNo-box label{order: 2;}
 
 .privacy-policy a {
   color: var(--clr-blue1);
