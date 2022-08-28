@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Client</title>
+  <title>Form Validation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="favicon.ico" />
   <!--font-awesome link for icons-->
@@ -21,28 +21,28 @@
           <form action="#FIXME" method="get" name="form">
             <div class="input-group">
               <label for="fname">first name</label>
-              <input type="text" name="fname" id="fname">
-              <span class="fname-alert">enter alphabets only</span>
+              <input type="text" name="fname" id="fname" autocomplete="off">
+              <span class="alert">enter alphabets only</span>
             </div>
             <div class="input-group">
               <label for="lname">last name</label>
-              <input type="text" name="lname" id="lname">
-              <span class="lname-alert">enter alphabets only</span>
+              <input type="text" name="lname" id="lname" autocomplete="off">
+              <span class="alert">enter alphabets only</span>
             </div>
             <div class="input-group">
               <label for="mobile">mobile</label>
-              <input type="text" name="mobile" id="mobile">
-              <span class="mobile-alert">enter only 10 numbers starts with 7/8/9</span>
+              <input type="text" name="mobile" id="mobile" autocomplete="off">
+              <span class="alert">enter only 10 numbers starts with 7/8/9</span>
             </div>
             <div class="input-group">
               <label for="position">position</label>
-              <input type="text" name="position" id="position">
-              <span class="position-alert">enter alphabets only</span>
+              <input type="text" name="position" id="position" autocomplete="off">
+              <span class="alert">enter alphabets only</span>
             </div>
             <div class="input-group">
               <label for="company">company</label>
-              <input type="text" name="company" id="company">
-              <span class="company-alert">enter alphabets only</span>
+              <input type="text" name="company" id="company" autocomplete="off">
+              <span class="alert">enter alphabets only</span>
             </div>
             <div class="input-group">
               <label for="companytype">company type</label>
@@ -53,7 +53,7 @@
                 <option value="Type 3">type 3</option>
                 <option value="Type 4">type 4</option>
               </select>
-              <span class="company-alert">select company type</span>
+              <span class="alert">select company type</span>
             </div>
             <div class="input-group">
               <label for="country">country</label>
@@ -64,22 +64,22 @@
                 <option value="country 3">country 3</option>
                 <option value="country 4">country 4</option>
               </select>
-              <span class="country-alert">select country</span>
+              <span class="alert">select country</span>
             </div>
             <div class="input-group">
               <label for="workemail">work email</label>
-              <input type="text" name="workemail" id="workemail" placeholder="monilv@prdxn.com">
-              <span class="workEmail-alert">enter valid email</span>
+              <input type="text" name="workemail" id="workemail" placeholder="monilv@prdxn.com" autocomplete="off">
+              <span class="alert">enter valid email (eg: monilv@prdxn.com)</span>
             </div>
             <div class="input-group">
               <label for="password">password</label>
-              <input type="text" name="password" id="password">
-              <span class="password-alert">atleast 1 speacial character, 1 capital, 1 small, 1 number &amp; max length 10</span>
+              <input type="text" name="password" id="password" autocomplete="off">
+              <span class="alert">atleast 1 speacial character, 1 capital, 1 small, 1 number &amp; length count between 5 to 10</span>
             </div>
             <div class="input-group">
               <label for="cPassword">confirm password</label>
-              <input type="text" name="cPassword" id="cPassword">
-              <span class="cPassword-alert">password do not match, try again</span>
+              <input type="text" name="cPassword" id="cPassword" autocomplete="off">
+              <span class="alert">password do not match, try again</span>
             </div>
             <div class="input-group">
               <span class="gender-heading">select gender</span>
@@ -95,23 +95,23 @@
                   <span class="custom-checkbox">check</span>
                 </div>
               </div>
-              <span class="gender-alert">select your gender</span>
+              <span class="alert">select your gender</span>
             </div>
             <div class="input-group">
               <p class="gender-heading">euroFinance is part of the economist group. Would you also like to receive information on subscription offers, Economist events and other product via email&quest;</p>
               <div class="yesNo-box">
                 <div class="yes-box">
                   <label for="yes">yes</label>
-                  <input type="radio" name="confirm" id="yes">
+                  <input type="radio" name="yesNo" id="yes">
                   <span class="custom-checkbox">check</span>
                 </div>
                 <div class="no-box">
                   <label for="no">no</label>
-                  <input type="radio" name="confirm" id="no">
+                  <input type="radio" name="yesNo" id="no">
                   <span class="custom-checkbox">check</span>
                 </div>
               </div>
-              <span class="yesNo-alert">select any one</span>
+              <span class="alert">select any one</span>
             </div>
             <div class="privacy-policy">
               <p>the Economist Group is a global organisation and operates a strict privacy policy around the world. You can view our privacy policy at <a href="#FIXME" title="www.economistgroup.com/privacy">www.economistgroup.com/privacy</a>
