@@ -174,20 +174,23 @@ form {
 .input-group select {
   background-color: var(--clr-blue1);
   color: var(--clr-white);
+  cursor: pointer;  
 }
 
-.input-group > span:last-child {
+.input-group select > * { background-color: var(--clr-blue2); }
+
+.alert {
   color: var(--clr-red);
   font-size: 11px;
   visibility: hidden;
 }
 
-.input-group > span:last-child.active { visibility: visible; }
-
-.input-group > span:last-child::before {
+.alert::before {
   content: '*';
   font-size: 13px;
 }
+
+.alert.active { visibility: visible; }
 
 .gender-box,
 .yesNo-box {
@@ -217,7 +220,7 @@ form {
 }
 
 .gender-box label,
-.yesNo-box label{
+.yesNo-box label {
   order: 2;
 }
 
@@ -253,3 +256,32 @@ form {
 /*=================================
   main styling ends here
 =================================*/
+
+/*media query starts*/
+/*media query for max-width: 1024px starts here*/
+@media only screen and (max-width: 1024px) {
+
+  .newsletter-signup .wrapper { width: 85%; }
+
+  .input-group input[type="text"],
+  .input-group select,
+  .input-control input {
+    width: 50%;
+  }
+  
+  .input-control input { width: 30%; }
+
+}  
+
+/*media query for max-width: 767px starts here*/
+@media only screen and (max-width: 767px) {
+
+  .newsletter-signup .wrapper { width: 95%; }
+
+  .input-group input[type="text"],
+  .input-group select,
+  .input-control input {
+    width: 100%;
+  }  
+
+}  
