@@ -11,8 +11,7 @@ var form = document.querySelector("form"),
 	password = form.password,
 	cpassword = form.cPassword,
 	gender = form.gender,
-	yesNo = form.yesNo,
-	alertMessage = document.querySelectorAll('.alert');
+	yesNo = form.yesNo;
 // form validation regex
 var allTextPattern = /^[a-zA-Z]+$/,
 	mobilePattern = /^(\+91|0)?([7-9]\d{9})$/,
@@ -26,32 +25,44 @@ var lowerAlphaPattern = /(=?.*[a-z])/,
 
 // generalInputCheck()
 function generalInputCheck(regexPattern, inputField, inputValue) {
+	var check = false;
 	if (regexPattern.test(inputValue)) {
 		inputField.parentElement.lastElementChild.classList.remove('active');
+		check = true;
 	} else {
 		inputField.parentElement.lastElementChild.classList.add('active');
 		inputField.value = '';
+		check = false;
 	}
+	return check;
 }
 
 // passwordCheck()
 function passwordCheck(lowerPattern, upperPattern, numericPattern, specialCharPattern, inputField, inputValue) {
+	var check = false;
 	if (lowerPattern.test(inputValue) && upperPattern.test(inputValue) && numericPattern.test(inputValue) && specialCharPattern.test(inputValue) && (inputValue.length >= 5) && (inputValue.length <= 10)) {
 		inputField.parentElement.lastElementChild.classList.remove('active');
+		check = true;
 	} else {
 		inputField.parentElement.lastElementChild.classList.add('active');
 		inputField.value = '';
+		check = false;
 	}
+	return check;
 }
 
 // cPasswordCheck()
 function cPasswordCheck(inputField, passwordValue, cpasswordValue) {
+	var check = false;
 	if (passwordValue === cpasswordValue) {
 		inputField.parentElement.lastElementChild.classList.remove('active');
+		check = true;
 	} else {
 		inputField.parentElement.lastElementChild.classList.add('active');
 		inputField.value = '';
+		check = false;
 	}
+	return check;
 }
 
 // checkBoxCheck()
@@ -68,6 +79,7 @@ function checkBoxCheck(inputRadio) {
 			radio.parentElement.parentElement.nextElementSibling.classList.add('active');
 		}
 	});
+	return check;
 }
 
 // form submit
@@ -84,16 +96,40 @@ form.addEventListener('submit', function (e) {
 		passwordValue = password.value.trim(),
 		cpasswordValue = cpassword.value.trim();
 
-	generalInputCheck(allTextPattern, fname, fnameValue);
-	generalInputCheck(allTextPattern, lname, lnameValue);
-	generalInputCheck(mobilePattern, mobile, mobileValue);
-	generalInputCheck(allTextPattern, position, positionValue);
-	generalInputCheck(allTextPattern, company, companyValue);
-	generalInputCheck(emptyPattern, companytype, companytypeValue);
-	generalInputCheck(emptyPattern, country, countryValue);
-	generalInputCheck(emailPattern, workemail, workemailValue);
-	passwordCheck(lowerAlphaPattern, upperAlphaPattern, numericPattern, specialCharPattern, password, passwordValue);
-	cPasswordCheck(cpassword, passwordValue, cpasswordValue);
-	checkBoxCheck(gender);
-	checkBoxCheck(yesNo);
-})
+	var fnameCheck = generalInputCheck(allTextPattern, fname, fnameValue),
+		lnameCheck = generalInputCheck(allTextPattern, lname, lnameValue),
+		mobileCheck = generalInputCheck(mobilePattern, mobile, mobileValue),
+		positionCheck = generalInputCheck(allTextPattern, position, positionValue),
+		companyCheck = generalInputCheck(allTextPattern, company, companyValue),
+		companytypeCheck = generalInputCheck(emptyPattern, companytype, companytypeValue),
+		countryCheck = generalInputCheck(emptyPattern, country, countryValue),
+		workemailCheck = generalInputCheck(emailPattern, workemail, workemailValue),
+		PasswordCheck = passwordCheck(lowerAlphaPattern, upperAlphaPattern, numericPattern, specialCharPattern, password, passwordValue),
+		cpasswordCheck = cPasswordCheck(cpassword, passwordValue, cpasswordValue),
+		genderCheck = checkBoxCheck(gender),
+		yesNoCheck = checkBoxCheck(yesNo);
+
+	if(fnameCheck && lnameCheck && mobileCheck && positionCheck && companyCheck && companytypeCheck && countryCheck && workemailCheck && PasswordCheck && cpasswordCheck && genderCheck && yesNoCheck) {
+		alert('form submitted');
+		fname.value = '';
+		lname.value = '';
+		mobile.value = '';
+		position.value = '';
+		company.value = '';
+		companytype.value = '';
+		country.value = '';
+		workemail.value = '';
+		password.value = '';
+		cpassword.value = '';
+		for(var i=0; i<gender.length; i++) {
+			if (gender[i].checked)
+			gender[i].checked = false;
+		}
+		for(var j=0; j<yesNo.length; j++) {
+			if (yesNo[j].checked)
+			yesNo[j].checked = false;
+		}
+	} else {
+		alert('please fill all inputs');
+	}
+});
