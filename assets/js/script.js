@@ -1,3 +1,5 @@
+var errorMessage = document.querySelector(".error-message");
+
 // form element references
 var form = document.querySelector("form"),
 	fname = form.fname,
@@ -12,11 +14,13 @@ var form = document.querySelector("form"),
 	cpassword = form.cPassword,
 	gender = form.gender,
 	yesNo = form.yesNo;
+
 // form validation regex
 var allTextPattern = /^[a-zA-Z]+$/,
 	mobilePattern = /^(\+91|0)?([7-9]\d{9})$/,
 	emailPattern = /^([a-z][a-z0-9\.\-]+[a-z0-9])\@([a-z]+)\.([a-z]{2,5})$/,
 	emptyPattern = /\w/;
+
 // password validation regex all 4
 var lowerAlphaPattern = /(=?.*[a-z])/,
 	upperAlphaPattern = /(=?.*[A-Z])/,
@@ -85,16 +89,18 @@ function checkBoxCheck(inputRadio) {
 // form submit
 form.addEventListener('submit', function (e) {
 	e.preventDefault();
-	var fnameValue = fname.value.trim(),
-		lnameValue = lname.value.trim(),
-		mobileValue = mobile.value.trim(),
-		positionValue = position.value.trim(),
-		companyValue = company.value.trim(),
-		companytypeValue = companytype.value.trim(),
-		countryValue = country.value.trim(),
-		workemailValue = workemail.value.trim(),
-		passwordValue = password.value.trim(),
-		cpasswordValue = cpassword.value.trim();
+	var fnameValue = fname.value,
+		lnameValue = lname.value,
+		mobileValue = mobile.value,
+		positionValue = position.value,
+		companyValue = company.value,
+		companytypeValue = companytype.value,
+		countryValue = country.value,
+		workemailValue = workemail.value,
+		passwordValue = password.value,
+		cpasswordValue = cpassword.value,
+		genderValue = gender.value,
+		yesNoValue = yesNo.value;
 
 	var fnameCheck = generalInputCheck(allTextPattern, fname, fnameValue),
 		lnameCheck = generalInputCheck(allTextPattern, lname, lnameValue),
@@ -110,7 +116,15 @@ form.addEventListener('submit', function (e) {
 		yesNoCheck = checkBoxCheck(yesNo);
 
 	if(fnameCheck && lnameCheck && mobileCheck && positionCheck && companyCheck && companytypeCheck && countryCheck && workemailCheck && PasswordCheck && cpasswordCheck && genderCheck && yesNoCheck) {
-		alert('form submitted');
+		
+		var formFilledData = [fnameValue, lnameValue, mobileValue, positionValue, companyValue, companytypeValue, countryValue, workemailValue, passwordValue, genderValue, yesNoValue];
+
+		var formOutputField = document.querySelectorAll('.form-input-values li span:last-child');
+
+		for(var a = 0; a < formFilledData.length; a++) {
+			formOutputField[a].innerText = formFilledData[a];
+		}
+		
 		fname.value = '';
 		lname.value = '';
 		mobile.value = '';
@@ -121,6 +135,13 @@ form.addEventListener('submit', function (e) {
 		workemail.value = '';
 		password.value = '';
 		cpassword.value = '';
+
+		errorMessage.classList.remove('active');
+
+		setTimeout(function(){
+			alert('form submitted');
+		},0)
+
 		for(var i=0; i<gender.length; i++) {
 			if (gender[i].checked)
 			gender[i].checked = false;
@@ -130,6 +151,7 @@ form.addEventListener('submit', function (e) {
 			yesNo[j].checked = false;
 		}
 	} else {
-		alert('please fill all inputs');
+		window.scrollTo(0, 0);
+		errorMessage.classList.add('active');
 	}
 });
