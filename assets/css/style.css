@@ -30,7 +30,10 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 
 /* Align radios and text inputs with their label */
 
@@ -98,6 +101,7 @@ sub { bottom: -.25em; }
   --clr-red: #EA4335;
   --clr-blue1: #369FE3;
   --clr-blue2: #225FAB;
+  --clr-green: #34A853;
 }
 
 body {
@@ -135,9 +139,24 @@ span { display: inline-block; }
 }
 
 .section-heading {
-  margin-bottom: 20px;
   color: var(--clr-blue2);
   font-size: 24px;
+}
+
+.error-message {
+  width: 100%;
+  margin: 10px 0;
+  color: var(--clr-red);
+  font-size: 14px;
+  text-align: center;
+  visibility: hidden;
+}
+
+.error-message.active { visibility: visible; }
+
+.error-message::before,
+.error-message::after {
+  content: ' *** ';
 }
 
 form {
@@ -159,7 +178,7 @@ form {
   font-size: 13px;
 }
 
-.input-group input[type="text"],
+.input-group input[type],
 .input-group select,
 .input-control input {
   width: 30%;
@@ -253,6 +272,39 @@ form {
 
 .input-control input:hover { background-color: var(--clr-blue2); }
 
+/* form filled data output section start */
+.form-input-values {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input-values li {
+  padding: 4px;
+  border-bottom: 2px solid var(--clr-green);
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-input-values li:first-child { border-top: 2px solid var(--clr-green); }
+.form-input-values li span { padding: 4px 0; }
+
+.form-input-values li span:first-child {
+  border-right: 2px solid var(--clr-green);
+  flex-basis: 25%;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.form-input-values li span:last-child {
+  flex-basis: 73%;
+}
+
+.form-input-values li span:last-child::first-letter {
+  text-transform: initial;
+}
+/* form filled data output section end */
+
 /*=================================
   main styling ends here
 =================================*/
@@ -263,7 +315,7 @@ form {
 
   .newsletter-signup .wrapper { width: 85%; }
 
-  .input-group input[type="text"],
+  .input-group input[type],
   .input-group select,
   .input-control input {
     width: 50%;
@@ -278,7 +330,7 @@ form {
 
   .newsletter-signup .wrapper { width: 95%; }
 
-  .input-group input[type="text"],
+  .input-group input[type],
   .input-group select,
   .input-control input {
     width: 100%;
